@@ -86,7 +86,8 @@
   .mf-body > .mf-section:last-child { margin-bottom: 28px; }
 
   /* 인물 소개 */
-  .mf-id { display: grid; grid-template-columns: 270px 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
+  .mf-id { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; margin-bottom: 48px; }
+  .mf-portrait-col { width: 72%; max-width: 280px; margin: 0 auto; }
   .mf-portrait { position: relative; background: var(--card); border: 1px solid var(--ink); border-radius: 10px; padding: 8px; }
   .mf-photo {
     position: relative; aspect-ratio: 3 / 4; border-radius: 5px; overflow: hidden; cursor: pointer;
@@ -143,7 +144,9 @@
   .mf-text { white-space: pre-wrap; min-height: 1.4em; }
 
   /* 육각형 차트 */
-  .mf-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 44px; align-items: start; }
+  .mf-cols { display: flex; flex-direction: column; }
+  .mf-col { display: contents; }
+  .mf-cols .o1 { order: 1; } .mf-cols .o2 { order: 2; } .mf-cols .o3 { order: 3; } .mf-cols .o4 { order: 4; } .mf-cols .o5 { order: 5; } .mf-cols .o6 { order: 6; }
   .mf-hex { width: 100%; max-width: 340px; height: auto; display: block; overflow: visible; margin: 0 auto 14px; }
   .mf-hex-ring { fill: none; stroke: var(--line); stroke-width: 1; }
   .mf-hex-ring.is-outer { stroke: var(--soft); stroke-width: 1.2; }
@@ -459,19 +462,19 @@
 
         <div class="mf-cols">
           <div class="mf-col">
-            <div class="mf-section" data-prune>
+            <div class="mf-section o1" data-prune>
               <div class="mf-h">조직 내 위치</div>
               <div class="mf-ledger" id="list-org"></div>
               <button class="mf-add mf-ui" type="button" data-add="org">+ 줄 추가</button>
             </div>
 
-            <div class="mf-section" data-prune>
+            <div class="mf-section o3" data-prune>
               <div class="mf-h">인간관계</div>
               <div class="mf-rels" id="list-rel"></div>
               <button class="mf-add mf-ui" type="button" data-add="rel">+ 관계 추가</button>
             </div>
 
-            <div class="mf-section" data-prune>
+            <div class="mf-section o4" data-prune>
               <div class="mf-h">연대기</div>
               <div class="mf-tls" id="list-time"></div>
               <button class="mf-add mf-ui" type="button" data-add="time">+ 사건 추가</button>
@@ -479,18 +482,18 @@
           </div>
 
           <div class="mf-col">
-            <div class="mf-section" data-prune>
+            <div class="mf-section o2" data-prune>
               <div class="mf-h">전투와 특기</div>
               <div class="mf-ledger" id="list-combat"></div>
               <button class="mf-add mf-ui" type="button" data-add="combat">+ 줄 추가</button>
             </div>
 
-            <div class="mf-section" data-prune>
+            <div class="mf-section o5" data-prune>
               <div class="mf-h">소지품</div>
               <div class="mf-text" data-edit data-key="items" data-placeholder="늘 몸에 지니는 물건을 적어주세요"></div>
             </div>
 
-            <div class="mf-section">
+            <div class="mf-section o6">
               <div class="mf-h mf-ui">파라미터</div>
               <svg class="mf-hex" id="hex" viewBox="0 0 360 340" role="img" aria-label="능력치 육각형 차트"></svg>
               <div class="mf-ui">
